@@ -1,12 +1,9 @@
 @extends('layouts.front')
+@section('navbarhomecontent')
+@include('layouts.front.navbarhomecontent')
+@endsection
 @section('content')
 <div class="content">
-
-
-        <!-- Navbar & Hero Start -->
-        @include('layouts.front.navbarhome')
-        <!-- Navbar & Hero End -->
-
 
         <!-- Service Start -->
         @include('layouts.front.service')

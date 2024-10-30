@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Usercontroller;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Front\IndexController;
+use App\Http\Controllers\Front\AboutController;
 
 
 /*
@@ -21,7 +22,8 @@ use App\Http\Controllers\Front\IndexController;
 */
 
 // Route::get('/redirects', [IndexController::class, 'redirects']);
-Route::get('/index', [IndexController::class, 'index']);
+Route::get('/index', [IndexController::class, 'index'])->name('home');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','permission']], function () {
   Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');

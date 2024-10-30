@@ -15,8 +15,19 @@
         </div>
         <!-- Spinner End -->
 
-        @yield('content')
        
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            @include('layouts.front.navbar')
+
+            @yield('navbarhomecontent')
+            @yield('navbarcontent')
+        </div>
+       
+        <!-- Navbar & Hero End -->
+
+        @yield('content')
+     
 
         <!-- Footer Start -->
         @include('layouts.front.footer')
