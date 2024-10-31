@@ -15,6 +15,8 @@
                     <li class="navigation-header"><span>Əsas</span> <i class="icon-menu" title="Main pages"></i></li>
                     <li class="active"><a href="{{route('admin.dashboard')}}"><i class="icon-home4"></i>
                             <span>Əsas Səhifə</span></a></li>
+                    <li class="active"><a href="{{route('admin.lang.index')}}"><i class="icon-home4"></i>
+                            <span>Dillər</span></a></li>
 
                     <!-- /main -->
 
