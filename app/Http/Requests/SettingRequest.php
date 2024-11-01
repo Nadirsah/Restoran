@@ -27,8 +27,8 @@ class SettingRequest extends FormRequest
             'adress' => 'required',
             'email' => 'required|email',
             'activ' => 'required|integer',
-            'logo'=>'max:2048|mimes:jpg,png',
-            'favicon'=>'max:2048|mimes:jpg,png',
+            'logo' => 'max:2048|mimes:jpg,png',
+            'favicon' => 'max:2048|mimes:jpg,png',
         ];
     }
 }

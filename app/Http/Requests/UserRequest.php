@@ -22,9 +22,9 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'name'=>['required'],
-                'email'=>['required','email'],
-                'password'=>'required|min:5|max:10',
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => 'required|min:5|max:10',
         ];
     }
 }

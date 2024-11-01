@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Lang;
+use Illuminate\Http\Request;
 
 class LangController extends Controller
 {
@@ -13,8 +13,9 @@ class LangController extends Controller
      */
     public function index()
     {
-        $langs=Lang::all();
-        return view('admin.lang.index',compact('langs'));
+        $langs = Lang::all();
+
+        return view('admin.lang.index', compact('langs'));
     }
 
     /**
@@ -31,13 +32,14 @@ class LangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
+            'name' => 'required',
         ]);
-                $data=new Lang();
-                $data->name=$request->name;
-                $data->save();
-            return redirect()->route('admin.lang.index')->with('type','success')
-                ->with('message','Melumatlar ugurla yuklendi!');
+        $data = new Lang;
+        $data->name = $request->name;
+        $data->save();
+
+        return redirect()->route('admin.lang.index')->with('type', 'success')
+            ->with('message', 'Melumatlar ugurla yuklendi!');
     }
 
     /**
@@ -53,8 +55,9 @@ class LangController extends Controller
      */
     public function edit(string $id)
     {
-        $data=Lang::findOrFail($id);
-        return view('admin.lang.edit',compact('data'));
+        $data = Lang::findOrFail($id);
+
+        return view('admin.lang.edit', compact('data'));
     }
 
     /**
@@ -63,14 +66,15 @@ class LangController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name'=>'required',
-    
+            'name' => 'required',
+
         ]);
-            $data=Lang::findOrFail($id);
-            $data->name=$request->name;
-            $data->save();
-            return redirect()->route('admin.lang.index')->with('type','success')
-                ->with('message','Melumatlar ugurla yenilendi!');
+        $data = Lang::findOrFail($id);
+        $data->name = $request->name;
+        $data->save();
+
+        return redirect()->route('admin.lang.index')->with('type', 'success')
+            ->with('message', 'Melumatlar ugurla yenilendi!');
     }
 
     /**
@@ -80,11 +84,14 @@ class LangController extends Controller
     {
         //
     }
-    public function delete($id){
 
-        Lang::find($id)->delete($id);
+    public function delete(Lang $id)
+    {
+
+       $id->delete();
+
         return response()->json([
-            'success' => 'Record deleted successfully!'
+            'success' => 'Record deleted successfully!',
         ]);
     }
 }

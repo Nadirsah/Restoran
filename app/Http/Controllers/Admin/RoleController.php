@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use App\Http\Requests\RoleRequest;
+use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -16,6 +16,7 @@ class RoleController extends Controller
     public function index()
     {
         $data = Role::all();
+
         return view('admin.role.index', compact('data'));
     }
 
@@ -35,6 +36,7 @@ class RoleController extends Controller
         $data = new Role;
         $data->name = $request->name;
         $data->save();
+
         return redirect()->route('admin.role.index')
             ->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
     }
@@ -51,10 +53,10 @@ class RoleController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Role $role)
-
     {
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = Permission::all();
+
         return view('admin.role.edit', compact('role', 'permissions', 'rolePermissions'));
     }
 
@@ -65,6 +67,7 @@ class RoleController extends Controller
     {
         $role->name = $request->name;
         $role->save();
+
         return redirect()->route('admin.role.index')
             ->with('type', 'success')->with('message', 'Məlumat yeniləndi!');
     }
@@ -76,9 +79,11 @@ class RoleController extends Controller
     {
         //
     }
+
     public function delete(Role $id)
     {
         $id->delete();
+
         return response()->json([
             'type' => 'Record deleted successfully!',
         ]);
@@ -94,14 +99,17 @@ class RoleController extends Controller
             $role->givePermissionTo($permission);
         }
 
-        return back()->with("Ugurlu");
+        return back()->with('Ugurlu');
     }
+
     public function revokePermission(Role $role, Permission $permission)
     {
         if ($role->hasPermissionTo($permission)) {
             $role->revokePermissionTo($permission);
-            return back()->with("");
+
+            return back()->with('');
         }
-        return back()->with("Ugursuz");
+
+        return back()->with('Ugursuz');
     }
 }

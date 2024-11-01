@@ -23,7 +23,7 @@
                                     <input type="text" class="form-control " name="name" value="{{$data->name}}"
                                         placeholder="Yazin...">
                                     <span
-                                        class="text-danger">@error('tags'){{'Dil sahəsi boş ola bilməz!'}}@enderror</span>
+                                        class="text-danger">@error('tags'){{'Bu sahəsi boş ola bilməz!'}}@enderror</span>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Göndər <i

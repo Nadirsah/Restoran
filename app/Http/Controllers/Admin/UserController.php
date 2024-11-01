@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -16,8 +15,9 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {  
+    {
         $data = User::all();
+
         return view('admin.users.index', compact('data'));
     }
 
@@ -34,12 +34,13 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $data = new User();
+        $data = new User;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->password = Hash::make($request->password);
         $data->save();
-        return  redirect()->route('admin.user.index')->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
+
+        return redirect()->route('admin.user.index')->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
     }
 
     /**
@@ -50,14 +51,13 @@ class UserController extends Controller
         //
     }
 
-
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
         $data = User::findOrFail($id);
+
         return view('admin.users.edit', compact('data'));
     }
 
@@ -71,7 +71,8 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->password = Hash::make($request->password);
         $data->save();
-        return  redirect()->route('admin.user.index')->with('type', 'success')->with('message', 'Məlumat uğurla yeniləndi!');
+
+        return redirect()->route('admin.user.index')->with('type', 'success')->with('message', 'Məlumat uğurla yeniləndi!');
     }
 
     /**
@@ -87,6 +88,7 @@ class UserController extends Controller
         $id = $request->id;
         $isActive = $request->is_active == 'true' ? 1 : 0;
         User::where('id', $id)->update(['is_active' => $isActive]);
+
         return response()->json(['message' => 'Status updated successfully']);
     }
 
@@ -95,24 +97,28 @@ class UserController extends Controller
     public function showRole(User $user)
     {
         $roles = Role::all();
+
         return view('admin.users.role', compact('user', 'roles'));
     }
-
 
     public function giveUserRole(Request $request, User $user)
     {
         if ($user->hasRole($request->role)) {
-            return back()->with("Ugursuz");
+            return back()->with('Ugursuz');
         }
         $user->assignRole($request->role);
-        return back()->with("Ugurlu");
+
+        return back()->with('Ugurlu');
     }
+
     public function revokeUserRole(User $user, Role $role)
     {
         if ($user->hasRole($role)) {
             $user->removeRole($role);
-            return back()->with("Icaze silindi");
+
+            return back()->with('Icaze silindi');
         }
-        return back()->with("Ugursuz");
+
+        return back()->with('Ugursuz');
     }
 }

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="content">
-
+      
         <!-- Service Start -->
         @include('layouts.front.service')
         <!-- Service End -->
@@ -33,7 +33,6 @@
         <!-- Testimonial Start -->
         @include('layouts.front.testimonial')
         <!-- Testimonial End -->
-
 
 
 
