@@ -13,7 +13,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="{{route('home')}}" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-globe"></i>
                 </a>
             </li>

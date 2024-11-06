@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\LangController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\Usercontroller;
+use App\Http\Controllers\Admin\TranslateController;
+use App\Http\Controllers\Admin\ChefsController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\BookingController;
 use App\Http\Controllers\Front\ContactController;
@@ -27,15 +30,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','localize','localeViewPath']],function(){
-Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/service', [ServiceController::class, 'index'])->name('service');
-Route::get('/menu', [MenuController::class, 'index'])->name('menu');
-Route::get('/booking', [BookingController::class, 'index'])->name('booking');
-Route::get('/team', [TeamController::class, 'index'])->name('team');
-Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'localize', 'localeViewPath']], function () {
+    Route::get('/', [IndexController::class, 'index'])->name('home');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/service', [ServiceController::class, 'index'])->name('service');
+    Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+    Route::get('/booking', [BookingController::class, 'index'])->name('booking');
+    Route::get('/team', [TeamController::class, 'index'])->name('team');
+    Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 });
 
 
@@ -61,7 +65,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     // Lang
     Route::resource('/lang', LangController::class);
     Route::post('/delete_lang/{id}', [LangController::class, 'delete'])->name('lang.delete');
-
+    // Translate
+    Route::resource('/translate', TranslateController::class,);
+     // Chefs
+     Route::resource('/chefs', ChefsController::class,);
+     // Lang
+    Route::resource('/services', ServicesController::class);
+    Route::post('/services_delete/{id}', [ServicesController::class, 'delete'])->name('services.delete');
 });
 
 Route::middleware(['web', 'guest'])->controller(AuthController::class)->group(function () {

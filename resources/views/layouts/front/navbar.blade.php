@@ -8,8 +8,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0 pe-4">
-            <a href="{{route('home')}}" class="nav-item nav-link {{(request()->segment(2) == 'index') ? 'active' : '' }} ">Home</a>
-            <a href="{{route('about')}}" class="nav-item nav-link {{(request()->segment(2) == 'about') ? 'active' : '' }}">About</a>
+            
+            <a href="{{route('home')}}" class="nav-item nav-link {{(request()->segment(2) == 'index') ? 'active' : '' }} ">{{__('navbar.home')}}</a>
+            <a href="{{route('about')}}" class="nav-item nav-link {{(request()->segment(2) == 'about') ? 'active' : '' }}">{{__('navbar.about')}}</a>
             <a href="{{route('service')}}" class="nav-item nav-link {{(request()->segment(2) == 'service') ? 'active' : '' }}">Service</a>
             <a href="{{route('menu')}}" class="nav-item nav-link {{(request()->segment(2) == 'menu') ? 'active' : '' }}">Menu</a>
             <div class="nav-item dropdown">

@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'az',
 
     /*
     |--------------------------------------------------------------------------
@@ -170,7 +170,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
+        Spatie\TranslationLoader\TranslationServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
+        
     ])->toArray(),
 
     /*

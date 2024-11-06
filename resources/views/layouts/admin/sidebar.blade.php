@@ -17,7 +17,15 @@
                             <span>Əsas Səhifə</span></a></li>
                     <li class="{{Request::segment(2)==='lang' ? 'active' : ''}}"><a href="{{route('admin.lang.index')}}"><i class="fa fa-sign-language"></i>
                             <span>Dillər</span></a></li>
-
+                    <li class="{{Request::segment(2)==='translate' ? 'active' : ''}}"><a
+                            href="{{route('admin.translate.index')}}"><i class="fa fa-language"></i>
+                            <span>Tərcümə</span></a></li>
+                    <li class="{{Request::segment(2)==='chefs' ? 'active' : ''}}"><a
+                            href="{{route('admin.chefs.index')}}"><i class="fa fa-language"></i>
+                            <span>Chefs</span></a></li>
+                    <li class="{{Request::segment(2)==='services' ? 'active' : ''}}"><a
+                            href="{{route('admin.services.index')}}"><i class="icon-wrench3"></i>
+                            <span>Xidmətlər</span></a></li>
                     <!-- /main -->
 
                     <!-- Forms -->
