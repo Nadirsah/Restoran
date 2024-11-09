@@ -15,7 +15,7 @@
                             <small>{{$item->position}}</small>
                             
                             <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                
                                
                             </div>
                         </div>

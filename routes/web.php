@@ -1,15 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ChefsController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LangController;
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\Usercontroller;
-use App\Http\Controllers\Admin\TranslateController;
-use App\Http\Controllers\Admin\ChefsController;
 use App\Http\Controllers\Admin\ServicesController;
-use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TranslateController;
+use App\Http\Controllers\Admin\Usercontroller;
+use App\Http\Controllers\Front\About_Controller;
 use App\Http\Controllers\Front\BookingController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\IndexController;
@@ -33,7 +34,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'localize', 'localeViewPath']], function () {
     Route::get('/', [IndexController::class, 'index'])->name('home');
-    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/about', [About_Controller::class, 'index'])->name('about');
     Route::get('/service', [ServiceController::class, 'index'])->name('service');
     Route::get('/menu', [MenuController::class, 'index'])->name('menu');
     Route::get('/booking', [BookingController::class, 'index'])->name('booking');
@@ -41,7 +42,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 });
-
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
@@ -66,12 +66,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('/lang', LangController::class);
     Route::post('/delete_lang/{id}', [LangController::class, 'delete'])->name('lang.delete');
     // Translate
-    Route::resource('/translate', TranslateController::class,);
-     // Chefs
-     Route::resource('/chefs', ChefsController::class,);
-     // Lang
+    Route::resource('/translate', TranslateController::class);
+    // Chefs
+    Route::resource('/chefs', ChefsController::class);
+    Route::post('/chef_delete/{id}', [ChefsController::class, 'delete'])->name('chef.delete');
+    // Service
     Route::resource('/services', ServicesController::class);
     Route::post('/services_delete/{id}', [ServicesController::class, 'delete'])->name('services.delete');
+    // About
+    Route::resource('/about', AboutController::class);
+    Route::post('/about_delete/{id}', [AboutController::class, 'delete'])->name('about.delete');
+    Route::post('/delete_image/{id}', [AboutController::class, 'deleteimg'])->name('image.delete');
 });
 
 Route::middleware(['web', 'guest'])->controller(AuthController::class)->group(function () {

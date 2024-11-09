@@ -9,6 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Chefs extends Model
 {
     use HasFactory, HasTranslations;
+
     protected $fillable = [
         'name',
         'position',
@@ -16,5 +17,6 @@ class Chefs extends Model
         'picture',
         'file_path',
     ];
+
     public $translatable = ['position'];
 }

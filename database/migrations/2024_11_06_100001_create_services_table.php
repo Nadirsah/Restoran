@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('header');
-            $table->longText("text");
+            $table->longText('text');
             $table->string('picture');
-            $table->string("file_path");
+            $table->string('file_path');
             $table->timestamps();
         });
     }

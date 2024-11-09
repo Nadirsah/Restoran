@@ -22,10 +22,10 @@ class ServicesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
-                'header.*' => 'required',
-                'text.*' => 'required',
-                'picture' => 'required',
+
+            'header.*' => 'required',
+            'text.*' => 'required',
+            'picture' => 'required',
         ];
     }
 }

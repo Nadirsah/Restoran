@@ -26,6 +26,9 @@
                     <li class="{{Request::segment(2)==='services' ? 'active' : ''}}"><a
                             href="{{route('admin.services.index')}}"><i class="icon-wrench3"></i>
                             <span>Xidmətlər</span></a></li>
+                    <li class="{{Request::segment(2)==='about' ? 'active' : ''}}"><a
+                            href="{{route('admin.about.index')}}"><i class="fa fa-info"></i>
+                            <span>Haqqımızda</span></a></li>
                     <!-- /main -->
 
                     <!-- Forms -->

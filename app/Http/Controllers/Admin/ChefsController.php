@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Chefs;
 use App\Models\Lang;
+use Illuminate\Http\Request;
+use App\Http\Requests\ChefRequest;
 
 class ChefsController extends Controller
 {
@@ -14,7 +15,8 @@ class ChefsController extends Controller
      */
     public function index()
     {
-        $data =Chefs::all();
+        $data = Chefs::all();
+
         return view('admin.chefs.index', compact('data'));
     }
 
@@ -22,27 +24,28 @@ class ChefsController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {    $langs=Lang::all();
-        return view('admin.chefs.create',compact('langs'));
+    {
+        $langs = Lang::all();
+
+        return view('admin.chefs.create', compact('langs'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ChefRequest $request)
     {
         $data = new Chefs;
         $data->name = $request->name;
         $data->position = $request->position;
         $data->social = $request->social;
-        $data->name = $request->name;
-        $filename = time() . '-' . $request->picture->getClientOriginalName();
+        $filename = time().'-'.$request->picture->getClientOriginalName();
         $filePath = $request->picture->storeAs('uploads', $filename, 'public');
-        $data->picture = time() . '-' . $request->picture->getClientOriginalName();
-        $data->file_path = '/storage/' . $filePath;
-       
+        $data->picture = time().'-'.$request->picture->getClientOriginalName();
+        $data->file_path = '/storage/'.$filePath;
+
         $data->save();
-       
+
         return redirect()->route('admin.chefs.index')
             ->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
     }
@@ -60,7 +63,9 @@ class ChefsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $langs = Lang::all();
+        $data = Chefs::findOrFail($id);
+        return view('admin.chefs.edit', compact('data', 'langs'));
     }
 
     /**
@@ -68,7 +73,19 @@ class ChefsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Chefs::findOrFail($id);
+        $data->name = $request->name;
+        $data->position = $request->position;
+        $data->social = $request->social;
+        $filename = time().'-'.$request->picture->getClientOriginalName();
+        $filePath = $request->picture->storeAs('uploads', $filename, 'public');
+        $data->picture = time().'-'.$request->picture->getClientOriginalName();
+        $data->file_path = '/storage/'.$filePath;
+
+        $data->save();
+
+        return redirect()->route('admin.chefs.index')
+            ->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
     }
 
     /**
@@ -77,5 +94,14 @@ class ChefsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function delete(Chefs $id)
+    {
+
+        $id->delete();
+
+        return response()->json([
+            'success' => 'Record deleted successfully!',
+        ]);
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Spatie\TranslationLoader\LanguageLine;
 use App\Http\Requests\TranslateRequest;
 use App\Models\Lang;
+use Spatie\TranslationLoader\LanguageLine;
+
 //use App\Models\LanguageLine;
 
 class TranslateController extends Controller
@@ -15,16 +15,20 @@ class TranslateController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   $data=LanguageLine::all();
-        return view('admin.translate.index',compact('data',));
+    {
+        $data = LanguageLine::all();
+
+        return view('admin.translate.index', compact('data'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {   $langs=Lang::all();
-        return view('admin.translate.create',compact('langs'));
+    {
+        $langs = Lang::all();
+
+        return view('admin.translate.create', compact('langs'));
     }
 
     /**
@@ -32,14 +36,14 @@ class TranslateController extends Controller
      */
     public function store(TranslateRequest $request)
     {
-        $data=new LanguageLine;
+        $data = new LanguageLine;
         $data->group = $request->group;
         $data->key = $request->key;
         $data->text = $request->text;
         $data->save();
 
-        return redirect()->route('admin.translate.index')->with('type','success')
-            ->with('message','Məlumatlar uğurla yüklendi!');
+        return redirect()->route('admin.translate.index')->with('type', 'success')
+            ->with('message', 'Məlumatlar uğurla yüklendi!');
     }
 
     /**
@@ -55,11 +59,11 @@ class TranslateController extends Controller
      */
     public function edit(string $id)
     {
-        $data=LanguageLine::findOrFail($id);
+        $data = LanguageLine::findOrFail($id);
         $translations = $data->text;
-        $langs=Lang::all();
+        $langs = Lang::all();
 
-        return view('admin.translate.edit',compact('data','translations'));
+        return view('admin.translate.edit', compact('data', 'translations'));
     }
 
     /**
@@ -67,14 +71,14 @@ class TranslateController extends Controller
      */
     public function update(TranslateRequest $request, string $id)
     {
-        $data=LanguageLine::findOrFail($id);
+        $data = LanguageLine::findOrFail($id);
         $data->group = $request->group;
         $data->key = $request->key;
         $data->text = $request->text;
         $data->save();
 
-        return redirect()->route('admin.translate.index')->with('type','success')
-            ->with('message','Məlumatlar uğurla yeniləndi!');
+        return redirect()->route('admin.translate.index')->with('type', 'success')
+            ->with('message', 'Məlumatlar uğurla yeniləndi!');
     }
 
     /**

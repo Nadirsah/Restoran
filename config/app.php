@@ -172,7 +172,7 @@ return [
         App\Providers\ViewServiceProvider::class,
         Spatie\TranslationLoader\TranslationServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
-        
+
     ])->toArray(),
 
     /*

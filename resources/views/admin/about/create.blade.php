@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title','Aşbaz əlave et')
+@section('title','Məlumat əlave et')
 @section('content')
 <div class="content">
     @include('layouts.admin.alert')
     <!-- Basic tabs -->
-    <form action="{{route('admin.chefs.store')}}" method="POST" class="row" enctype="multipart/form-data">
+    <form action="{{route('admin.about.store')}}" method="POST" class="row" enctype="multipart/form-data">
         @csrf
         <div class="col-md-5">
             <div class="card">
@@ -13,14 +13,8 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <div class="form-group">
-                                    <label>Ad</label>
-                                    <input type="text" class="form-control " name="name" value="{{old('name')}}"
-                                        placeholder="Yazin...">
-                                    <span
-                                        class="text-danger">@error('name'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
-                                </div>
-                               
+
+
                                 <!--  -->
                                 <ul class="nav nav-tabs">
                                     @foreach($langs as $key=>$lang)
@@ -34,14 +28,15 @@
                                     <div class="tab-pane fade{{$key===0?'show active':''}}" id="{{$lang->name}}">
                                         <div class="card">
                                             <div class="card-body">
+
                                                 <fieldset class="content-group">
                                                     <div class="form-group">
-                                                        <label>position</label>
+                                                        <label>Mətin</label>
                                                         <textarea rows="5" cols="5" class="form-control summernote"
-                                                            name="position[{{$lang->name}}]"
-                                                            placeholder="Default textarea">{{old('position.'.$lang->name)}}</textarea>
+                                                            name="text[{{$lang->name}}]"
+                                                            placeholder="Default textarea">{{old('text.'.$lang->name)}}</textarea>
                                                         <span
-                                                            class="text-danger">@error('position.'.$lang->name){{'Bu sahəs boş ola bilməz!'}}@enderror</span>
+                                                            class="text-danger">@error('text.'.$lang->name){{'Bu sahəs boş ola bilməz!'}}@enderror</span>
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -51,18 +46,18 @@
                                 </div>
                                 <!--  -->
                                 <div class="form-group">
-                                    <label>sosial</label>
-                                    <input type="text" class="form-control " name="social" value="{{old('social')}}"
+                                    <label>Təcrübə müdəti</label>
+                                    <input type="number" class="form-control " name="experience" value="{{old('experience')}}"
                                         placeholder="Yazin...">
                                     <span
-                                        class="text-danger">@error('name'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
+                                        class="text-danger">@error('experience'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
                                 </div>
                                 <div class="form-group">
                                     <label>picture</label>
-                                    <input type="file" class="form-control " name="picture" value="{{old('picture')}}"
+                                    <input type="file" class="form-control " name="picture[]" multiple value="{{old('picture')}}"
                                         placeholder="Yazin...">
                                     <span
-                                        class="text-danger">@error('name'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
+                                        class="text-danger">@error('picture'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
                                 </div>
 
                             </div>

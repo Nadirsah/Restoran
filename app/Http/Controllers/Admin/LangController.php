@@ -88,7 +88,7 @@ class LangController extends Controller
     public function delete(Lang $id)
     {
 
-       $id->delete();
+        $id->delete();
 
         return response()->json([
             'success' => 'Record deleted successfully!',

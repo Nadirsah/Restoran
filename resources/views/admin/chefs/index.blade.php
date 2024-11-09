@@ -60,7 +60,7 @@
         }
 
         $.ajax({
-            url: "role_delete/" + id,
+            url: "chef_delete/" + id,
             type: 'post',
             data: {
                 "id": id,

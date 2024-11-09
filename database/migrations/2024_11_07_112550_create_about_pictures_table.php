@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('language_lines', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('group')->index();
-            $table->string('key');
-            $table->json('text');
+        Schema::create('about_pictures', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('about_id')->constrained('abouts')->onDelete('cascade');
+            $table->string('picture');
+            $table->string('file_path');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('language_lines');
+        Schema::dropIfExists('about_pictures');
     }
 };

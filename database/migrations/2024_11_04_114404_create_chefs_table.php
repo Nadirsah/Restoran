@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('chefs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->json("position");
+            $table->json('position');
             $table->string('social');
             $table->string('picture');
-            $table->string("file_path");
+            $table->string('file_path');
             $table->timestamps();
         });
     }

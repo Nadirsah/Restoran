@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Services;
-use App\Models\Lang;
 use App\Http\Requests\ServicesRequest;
+use App\Models\Lang;
+use App\Models\Services;
+use Illuminate\Http\Request;
 
 class ServicesController extends Controller
 {
@@ -16,6 +16,7 @@ class ServicesController extends Controller
     public function index()
     {
         $data = Services::all();
+
         return view('admin.services.index', compact('data'));
     }
 
@@ -25,6 +26,7 @@ class ServicesController extends Controller
     public function create()
     {
         $langs = Lang::all();
+
         return view('admin.services.create', compact('langs'));
     }
 
@@ -36,10 +38,10 @@ class ServicesController extends Controller
         $data = new Services;
         $data->header = $request->header;
         $data->text = $request->text;
-        $filename = time() . '-' . $request->picture->getClientOriginalName();
+        $filename = time().'-'.$request->picture->getClientOriginalName();
         $filePath = $request->picture->storeAs('uploads', $filename, 'public');
-        $data->picture = time() . '-' . $request->picture->getClientOriginalName();
-        $data->file_path = '/storage/' . $filePath;
+        $data->picture = time().'-'.$request->picture->getClientOriginalName();
+        $data->file_path = '/storage/'.$filePath;
         $data->save();
 
         return redirect()->route('admin.services.index')
@@ -61,6 +63,7 @@ class ServicesController extends Controller
     {
         $langs = Lang::all();
         $data = Services::findOrFail($id);
+
         return view('admin.services.edit', compact('data', 'langs'));
     }
 
@@ -72,10 +75,10 @@ class ServicesController extends Controller
         $data = Services::findOrFail($id);
         $data->header = $request->header;
         $data->text = $request->text;
-        $filename = time() . '-' . $request->picture->getClientOriginalName();
+        $filename = time().'-'.$request->picture->getClientOriginalName();
         $filePath = $request->picture->storeAs('uploads', $filename, 'public');
-        $data->picture = time() . '-' . $request->picture->getClientOriginalName();
-        $data->file_path = '/storage/' . $filePath;
+        $data->picture = time().'-'.$request->picture->getClientOriginalName();
+        $data->file_path = '/storage/'.$filePath;
         $data->save();
 
         return redirect()->route('admin.services.index')
@@ -89,6 +92,7 @@ class ServicesController extends Controller
     {
         //
     }
+
     public function delete(Services $id)
     {
 
