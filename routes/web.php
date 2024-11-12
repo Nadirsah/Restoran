@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TranslateController;
 use App\Http\Controllers\Admin\Usercontroller;
+use App\Http\Controllers\Admin\Menuscontroller;
 use App\Http\Controllers\Front\About_Controller;
 use App\Http\Controllers\Front\BookingController;
 use App\Http\Controllers\Front\ContactController;
@@ -77,6 +78,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('/about', AboutController::class);
     Route::post('/about_delete/{id}', [AboutController::class, 'delete'])->name('about.delete');
     Route::post('/delete_image/{id}', [AboutController::class, 'deleteimg'])->name('image.delete');
+    // Menu
+    Route::resource('/menu', Menuscontroller::class);
+    Route::post('/menu_delete/{id}', [Menuscontroller::class, 'delete'])->name('menu.delete');
 });
 
 Route::middleware(['web', 'guest'])->controller(AuthController::class)->group(function () {

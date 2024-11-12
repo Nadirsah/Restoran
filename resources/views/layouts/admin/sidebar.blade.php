@@ -1,65 +1,68 @@
 <div class="sidebar sidebar-main">
-    <div class="sidebar-content">
+        <div class="sidebar-content">
 
-        <!-- User menu -->
+                <!-- User menu -->
 
-        <!-- /user menu -->
+                <!-- /user menu -->
 
 
-        <!-- Main navigation -->
-        <div class="sidebar-category sidebar-category-visible">
-            <div class="category-content no-padding">
-                <ul class="navigation navigation-main navigation-accordion">
+                <!-- Main navigation -->
+                <div class="sidebar-category sidebar-category-visible">
+                        <div class="category-content no-padding">
+                                <ul class="navigation navigation-main navigation-accordion">
 
-                    <!-- Main -->
-                    <li class="navigation-header"><span>Əsas</span> <i class="icon-menu" title="Main pages"></i></li>
-                    <li class="{{Request::segment(2)==='dashboard' ? 'active' : ''}}"><a href="{{route('admin.dashboard')}}"><i class="icon-home4"></i>
-                            <span>Əsas Səhifə</span></a></li>
-                    <li class="{{Request::segment(2)==='lang' ? 'active' : ''}}"><a href="{{route('admin.lang.index')}}"><i class="fa fa-sign-language"></i>
-                            <span>Dillər</span></a></li>
-                    <li class="{{Request::segment(2)==='translate' ? 'active' : ''}}"><a
-                            href="{{route('admin.translate.index')}}"><i class="fa fa-language"></i>
-                            <span>Tərcümə</span></a></li>
-                    <li class="{{Request::segment(2)==='chefs' ? 'active' : ''}}"><a
-                            href="{{route('admin.chefs.index')}}"><i class="fa fa-language"></i>
-                            <span>Chefs</span></a></li>
-                    <li class="{{Request::segment(2)==='services' ? 'active' : ''}}"><a
-                            href="{{route('admin.services.index')}}"><i class="icon-wrench3"></i>
-                            <span>Xidmətlər</span></a></li>
-                    <li class="{{Request::segment(2)==='about' ? 'active' : ''}}"><a
-                            href="{{route('admin.about.index')}}"><i class="fa fa-info"></i>
-                            <span>Haqqımızda</span></a></li>
-                    <!-- /main -->
+                                        <!-- Main -->
+                                        <li class="navigation-header"><span>Əsas</span> <i class="icon-menu" title="Main pages"></i></li>
+                                        <li class="{{Request::segment(2)==='dashboard' ? 'active' : ''}}"><a href="{{route('admin.dashboard')}}"><i class="icon-home4"></i>
+                                                        <span>Əsas Səhifə</span></a></li>
+                                        <li class="{{Request::segment(2)==='lang' ? 'active' : ''}}"><a href="{{route('admin.lang.index')}}"><i class="fa fa-sign-language"></i>
+                                                        <span>Dillər</span></a></li>
+                                        <li class="{{Request::segment(2)==='translate' ? 'active' : ''}}"><a
+                                                        href="{{route('admin.translate.index')}}"><i class="fa fa-language"></i>
+                                                        <span>Tərcümə</span></a></li>
+                                        <li class="{{Request::segment(2)==='chefs' ? 'active' : ''}}"><a
+                                                        href="{{route('admin.chefs.index')}}"><i class="fa fa-language"></i>
+                                                        <span>Chefs</span></a></li>
+                                        <li class="{{Request::segment(2)==='services' ? 'active' : ''}}"><a
+                                                        href="{{route('admin.services.index')}}"><i class="icon-wrench3"></i>
+                                                        <span>Xidmətlər</span></a></li>
+                                        <li class="{{Request::segment(2)==='about' ? 'active' : ''}}"><a
+                                                        href="{{route('admin.about.index')}}"><i class="fa fa-info"></i>
+                                                        <span>Haqqımızda</span></a></li>
+                                        <li class="{{Request::segment(2)==='menu' ? 'active' : ''}}"><a
+                                                        href="{{route('admin.menu.index')}}"><i class="fa fa-coffee"></i>
+                                                        <span>Menyu</span></a></li>
+                                        <!-- /main -->
 
-                    <!-- Forms -->
-                    <!-- /forms -->
+                                        <!-- Forms -->
+                                        <!-- /forms -->
 
-                    <!-- Appearance -->
+                                        <!-- Appearance -->
 
-                    <!-- /appearance -->
+                                        <!-- /appearance -->
 
-                    <!-- Layout -->
+                                        <!-- Layout -->
 
-                    <!-- /layout -->
+                                        <!-- /layout -->
 
-                    <!-- Data visualization -->
+                                        <!-- Data visualization -->
 
-                    <!-- /data visualization -->
+                                        <!-- /data visualization -->
 
-                    <!-- Extensions -->
+                                        <!-- Extensions -->
 
-                    <!-- /extensions -->
+                                        <!-- /extensions -->
 
-                    <!-- Tables -->
-                    <!-- /tables -->
+                                        <!-- Tables -->
+                                        <!-- /tables -->
 
-                    <!-- Page kits -->
-                    <!-- /page kits -->
+                                        <!-- Page kits -->
+                                        <!-- /page kits -->
 
-                </ul>
-            </div>
+                                </ul>
+                        </div>
+                </div>
+                <!-- /main navigation -->
+
         </div>
-        <!-- /main navigation -->
-
-    </div>
 </div>
