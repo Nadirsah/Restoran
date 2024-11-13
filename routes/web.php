@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TranslateController;
 use App\Http\Controllers\Admin\Usercontroller;
 use App\Http\Controllers\Admin\Menuscontroller;
+use App\Http\Controllers\Admin\Messagecontroller;
 use App\Http\Controllers\Front\About_Controller;
 use App\Http\Controllers\Front\BookingController;
 use App\Http\Controllers\Front\ContactController;
@@ -42,6 +43,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/team', [TeamController::class, 'index'])->name('team');
     Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::resource('/message', Messagecontroller::class);
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {

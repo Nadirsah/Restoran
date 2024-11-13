@@ -37,8 +37,6 @@
                                         <span
                                             class="text-danger">@error('phone_1'){{'Bu sahə boşola bilməz!'}}@enderror</span>
                                     </div>
-                                </div>
-                                <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Telefon 2</label>
                                         <input type="text" class="form-control " name="phone_2"
@@ -46,6 +44,24 @@
                                         <span
                                             class="text-danger">@error('phone_2'){{'Bu sahə boşola bilməz!'}}@enderror</span>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Sosial</label>
+                                        <input type="text" class="form-control " name="social"
+                                            value="{{old('social',$data->social)}}" placeholder="Yazin...">
+                                        <span
+                                            class="text-danger">@error('social'){{'Bu sahə boşola bilməz!'}}@enderror</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                   
+                                    <div class="form-group">
+                                        <label>İş saatı</label>
+                                        <input type="text" class="form-control " name="work_hour"
+                                            value="{{old('work_hour',$data->work_hour)}}" placeholder="Yazin...">
+                                        <span
+                                            class="text-danger">@error('work_hour'){{'Bu sahə boşola bilməz!'}}@enderror</span>
+                                    </div>
+
                                     <div class="form-group">
                                         <label>Ünvan</label>
                                         <input type="text" class="form-control " name="adress"

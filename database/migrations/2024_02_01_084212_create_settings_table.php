@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('phone_2');
             $table->string('adress');
             $table->string('email');
+            $table->string('social');
+            $table->string('work_hour');
             $table->boolean('activ');
             $table->timestamps();
         });

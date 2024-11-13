@@ -64,6 +64,8 @@ class SettingController extends Controller
         $data->adress = $request->adress;
         $data->email = $request->email;
         $data->activ = $request->activ;
+        $data->social = $request->social;
+        $data->work_hour = $request->work_hour;
         if ($request->hasFile('logo') && $request->hasFile('favicon')) {
             $filenameloco = time().'-'.$request->file('logo')->getClientOriginalName();
             $filenamefavicon = time().'-'.$request->file('favicon')->getClientOriginalName();

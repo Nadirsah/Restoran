@@ -26,6 +26,8 @@
                     <th>Telefon 2</th>
                     <th>Unvan</th>
                     <th>E-poçt</th>
+                    <th>Sosial</th>
+                    <th>İş saatı</th>
                     <th>Status</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -38,6 +40,8 @@
                     <td>{{$data->phone_2}}</td>
                     <td>{{$data->adress}}</td>
                     <td>{{$data->email}}</td>
+                    <td>{{$data->social}}</td>
+                    <td>{{$data->work_hour}}</td>
                     <td>
                         <div class="checkbox checkbox-switchery">
                             <label>
