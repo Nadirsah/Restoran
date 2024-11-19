@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\MessageModel;
 use App\Http\Requests\Message;
+use App\Models\MessageModel;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {

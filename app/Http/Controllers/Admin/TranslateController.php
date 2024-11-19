@@ -42,7 +42,7 @@ class TranslateController extends Controller
         $data->text = $request->text;
         $data->save();
 
-        return redirect()->route('admin.translate.index')->with('type', 'success')
+        return redirect()->route('admin.translate.create')->with('type', 'success')
             ->with('message', 'Məlumatlar uğurla yüklendi!');
     }
 

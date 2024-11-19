@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MenuRequest;
-use App\Models\Menu;
 use App\Models\Lang;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MenusController extends Controller
@@ -16,6 +16,7 @@ class MenusController extends Controller
     public function index()
     {
         $item = Menu::all();
+
         return view('admin.menu.index', compact('item'));
     }
 
@@ -26,6 +27,7 @@ class MenusController extends Controller
     {
         $langs = Lang::all();
         $data = Menu::whereNull('parent_id')->get();
+
         return view('admin.menu.create', compact('langs', 'data'));
     }
 
@@ -40,16 +42,17 @@ class MenusController extends Controller
         $data->parent_id = $request->parent_id;
         $data->price = $request->price;
         if ($request->hasFile('picture')) {
-            $filename = time() . '-' . $request->picture->getClientOriginalName();
+            $filename = time().'-'.$request->picture->getClientOriginalName();
             $filePath = $request->picture->storeAs('uploads', $filename, 'public');
             $data->picture = $filename;
-            $data->file_path = '/storage/' . $filePath;
+            $data->file_path = '/storage/'.$filePath;
         } else {
             $data->picture = null;
             $data->file_path = null;
         }
 
         $data->save();
+
         return redirect()->route('admin.menu.index')
             ->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
     }
@@ -70,7 +73,8 @@ class MenusController extends Controller
         $langs = Lang::all();
         $data = Menu::findOrFail($id);
         $menu = Menu::whereNull('parent_id')->where('id', '!=', $data->id)->orderby('name', 'asc')->get();
-        return  view('admin.menu.edit', compact('langs', 'data', 'menu'));
+
+        return view('admin.menu.edit', compact('langs', 'data', 'menu'));
     }
 
     /**
@@ -84,16 +88,17 @@ class MenusController extends Controller
         $data->parent_id = $request->parent_id;
         $data->price = $request->price;
         if ($request->hasFile('picture')) {
-            $filename = time() . '-' . $request->picture->getClientOriginalName();
+            $filename = time().'-'.$request->picture->getClientOriginalName();
             $filePath = $request->picture->storeAs('uploads', $filename, 'public');
             $data->picture = $filename;
-            $data->file_path = '/storage/' . $filePath;
+            $data->file_path = '/storage/'.$filePath;
         } else {
             $data->picture = null;
             $data->file_path = null;
         }
 
         $data->save();
+
         return redirect()->route('admin.menu.index')
             ->with('type', 'success')->with('message', 'Məlumat əlavə olundu!');
     }
@@ -105,6 +110,7 @@ class MenusController extends Controller
     {
         //
     }
+
     public function delete(Menu $id)
     {
 

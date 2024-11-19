@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChefRequest;
 use App\Models\Chefs;
 use App\Models\Lang;
 use Illuminate\Http\Request;
-use App\Http\Requests\ChefRequest;
 
 class ChefsController extends Controller
 {
@@ -65,6 +65,7 @@ class ChefsController extends Controller
     {
         $langs = Lang::all();
         $data = Chefs::findOrFail($id);
+
         return view('admin.chefs.edit', compact('data', 'langs'));
     }
 
@@ -95,6 +96,7 @@ class ChefsController extends Controller
     {
         //
     }
+
     public function delete(Chefs $id)
     {
 

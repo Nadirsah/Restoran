@@ -11,17 +11,17 @@
             
             <a href="{{route('home')}}" class="nav-item nav-link {{(request()->segment(2) == 'index') ? 'active' : '' }} ">{{__('navbar.home')}}</a>
             <a href="{{route('about')}}" class="nav-item nav-link {{(request()->segment(2) == 'about') ? 'active' : '' }}">{{__('navbar.about')}}</a>
-            <a href="{{route('service')}}" class="nav-item nav-link {{(request()->segment(2) == 'service') ? 'active' : '' }}">Service</a>
-            <a href="{{route('menu')}}" class="nav-item nav-link {{(request()->segment(2) == 'menu') ? 'active' : '' }}">Menu</a>
+            <a href="{{route('service')}}" class="nav-item nav-link {{(request()->segment(2) == 'service') ? 'active' : '' }}">{{__('navbar.service')}}</a>
+            <a href="{{route('menu')}}" class="nav-item nav-link {{(request()->segment(2) == 'menu') ? 'active' : '' }}">{{__('navbar.menu')}}</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{in_array(request()->segment(2),['booking','team','testimonial']) ? 'active' : '' }}" data-bs-toggle="dropdown">Pages</a>
+                <a href="#" class="nav-link dropdown-toggle {{in_array(request()->segment(2),['booking','team','testimonial']) ? 'active' : '' }}" data-bs-toggle="dropdown">{{__('navbar.pages')}}</a>
                 <div class="dropdown-menu m-0">
                     <a href="{{route('booking')}}" class="dropdown-item ">Booking</a>
-                    <a href="{{route('team')}}" class="dropdown-item ">Our Team</a>
-                    <a href="{{route('testimonial')}}" class="dropdown-item ">Testimonial</a>
+                    <a href="{{route('team')}}" class="dropdown-item ">{{__('word.team')}}</a>
+                    <a href="{{route('testimonial')}}" class="dropdown-item ">{{__('word.Testimonial')}}</a>
                 </div>
             </div>
-            <a href="{{route('contact')}}" class="nav-item nav-link {{(request()->segment(2) == 'contact') ? 'active' : '' }}">Contact</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link {{(request()->segment(2) == 'contact') ? 'active' : '' }}">{{__('navbar.contact')}}</a>
         </div>
         @include('layouts.front.lang')
     </div>

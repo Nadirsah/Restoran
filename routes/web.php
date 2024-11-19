@@ -5,13 +5,14 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ChefsController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LangController;
+use App\Http\Controllers\Admin\Menuscontroller;
+use App\Http\Controllers\Admin\Messagecontroller;
+use App\Http\Controllers\Admin\Navbarcontroller;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TranslateController;
 use App\Http\Controllers\Admin\Usercontroller;
-use App\Http\Controllers\Admin\Menuscontroller;
-use App\Http\Controllers\Admin\Messagecontroller;
 use App\Http\Controllers\Front\About_Controller;
 use App\Http\Controllers\Front\BookingController;
 use App\Http\Controllers\Front\ContactController;
@@ -83,6 +84,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     // Menu
     Route::resource('/menu', Menuscontroller::class);
     Route::post('/menu_delete/{id}', [Menuscontroller::class, 'delete'])->name('menu.delete');
+    // Navbar
+    Route::resource('/navbar', Navbarcontroller::class);
+    Route::post('/navbar_delete/{id}', [Navbarcontroller::class, 'delete'])->name('navbar.delete');
 });
 
 Route::middleware(['web', 'guest'])->controller(AuthController::class)->group(function () {

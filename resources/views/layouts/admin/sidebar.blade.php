@@ -32,6 +32,9 @@
                                         <li class="{{Request::segment(2)==='menu' ? 'active' : ''}}"><a
                                                         href="{{route('admin.menu.index')}}"><i class="fa fa-coffee"></i>
                                                         <span>Menyu</span></a></li>
+                                        <li class="{{Request::segment(2)==='navbar' ? 'active' : ''}}"><a
+                                                        href="{{route('admin.navbar.index')}}"><i class="fa fa-picture-o"></i>
+                                                        <span>Navbar</span></a></li>
                                         <!-- /main -->
 
                                         <!-- Forms -->

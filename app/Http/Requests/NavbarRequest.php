@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MenuRequest extends FormRequest
+class NavbarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,11 @@ class MenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description.*' => 'sometimes|nullable',
-            'name.*' => 'required',
-            'picture' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:5120',
-            'price' => 'sometimes|nullable|integer',
-            'file_path' => 'sometimes|nullable',
-            'parent_id' => 'sometimes|nullable|numeric',
+            'title.*' => 'required',
+            'text.*' => 'required',
+            'background_image' => 'required',
+            'image' => 'required',
+
         ];
     }
 }
