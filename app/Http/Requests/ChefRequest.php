@@ -24,7 +24,6 @@ class ChefRequest extends FormRequest
         return [
             'name' => 'required',
             'position.*' => 'required',
-            'social' => 'required',
             'picture' => 'required',
 
         ];

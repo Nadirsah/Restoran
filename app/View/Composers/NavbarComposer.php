@@ -4,15 +4,15 @@ namespace App\View\Composers;
 
 //use App\Repositories\UserRepository;
 
-use App\Models\Chefs;
+use App\Models\Navbar;
 use Illuminate\View\View;
 
-class ChefsComposer
+class NavbarComposer
 {
     public function compose(View $view): void
     {
-        $chefs = Chefs::take(4)->get();
-        $view->with('chefs', $chefs);
+        $navbar = Navbar::first();
+        $view->with('navbar', $navbar);
 
     }
 }

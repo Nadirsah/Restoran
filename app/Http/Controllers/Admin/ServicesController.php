@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ServicesRequest;
 use App\Models\Lang;
 use App\Models\Services;
-use Illuminate\Http\Request;
 
 class ServicesController extends Controller
 {
@@ -70,7 +69,7 @@ class ServicesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ServicesRequest $request, string $id)
     {
         $data = Services::findOrFail($id);
         $data->header = $request->header;

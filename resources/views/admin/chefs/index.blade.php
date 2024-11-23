@@ -20,7 +20,6 @@
                     <th>No</th>
                     <th>Ad</th>
                     <th>Vəzifə</th>
-                    <th>Sosial şəbəkə</th>
                     <th>Şəkil</th>
                     <th>Daxil etmə tarixi</th>
                     <th>Düzəliş tarixi</th>
@@ -34,7 +33,6 @@
                     <td>{{$items->name}}</td>
                     <td>{{$items->position}}
                     </td>
-                    <td>{{$items->social}}</td>
                     <td><img width="50" src="{{$items->file_path}}" class="projects-image img-fluid" alt=""></td>
                     <td>{{$items->created_at}}</td>
                     <td>{{$items->updated_at}}</td>

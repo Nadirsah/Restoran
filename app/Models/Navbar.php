@@ -9,6 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Navbar extends Model
 {
     use HasFactory,HasTranslations;
+
     protected $fillable = [
         'title',
         'text',
@@ -18,5 +19,5 @@ class Navbar extends Model
         'image_file_path',
     ];
 
-    public $translatable = ['title','text'];
+    public $translatable = ['title', 'text'];
 }

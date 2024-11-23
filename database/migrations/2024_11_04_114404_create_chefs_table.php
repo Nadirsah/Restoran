@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->json('position');
-            $table->string('social');
             $table->string('picture');
             $table->string('file_path');
             $table->timestamps();

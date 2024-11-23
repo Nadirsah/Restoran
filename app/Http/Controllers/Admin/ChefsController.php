@@ -38,7 +38,6 @@ class ChefsController extends Controller
         $data = new Chefs;
         $data->name = $request->name;
         $data->position = $request->position;
-        $data->social = $request->social;
         $filename = time().'-'.$request->picture->getClientOriginalName();
         $filePath = $request->picture->storeAs('uploads', $filename, 'public');
         $data->picture = time().'-'.$request->picture->getClientOriginalName();
@@ -77,7 +76,6 @@ class ChefsController extends Controller
         $data = Chefs::findOrFail($id);
         $data->name = $request->name;
         $data->position = $request->position;
-        $data->social = $request->social;
         $filename = time().'-'.$request->picture->getClientOriginalName();
         $filePath = $request->picture->storeAs('uploads', $filename, 'public');
         $data->picture = time().'-'.$request->picture->getClientOriginalName();

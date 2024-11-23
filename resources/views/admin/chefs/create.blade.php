@@ -50,13 +50,7 @@
                                     @endforeach
                                 </div>
                                 <!--  -->
-                                <div class="form-group">
-                                    <label>sosial</label>
-                                    <input type="text" class="form-control " name="social" value="{{old('social')}}"
-                                        placeholder="Yazin...">
-                                    <span
-                                        class="text-danger">@error('name'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
-                                </div>
+                               
                                 <div class="form-group">
                                     <label>picture</label>
                                     <input type="file" class="form-control " name="picture" value="{{old('picture')}}"

@@ -13,7 +13,6 @@ class Chefs extends Model
     protected $fillable = [
         'name',
         'position',
-        'social',
         'picture',
         'file_path',
     ];

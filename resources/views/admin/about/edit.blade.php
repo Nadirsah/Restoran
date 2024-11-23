@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>picture</label>
-                                    <input type="file" class="form-control " name="picture" value="{{old('picture')}}"
+                                    <input type="file" class="form-control " name="picture[]" multiple value="{{old('picture')}}"
                                         placeholder="Yazin...">
                                     <span
                                         class="text-danger">@error('picture'){{'Bu sahə boş ola bilməz!'}}@enderror</span>
