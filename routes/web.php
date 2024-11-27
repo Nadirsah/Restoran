@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ChefsController;
+use App\Http\Controllers\Admin\Chefs_SocialController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LangController;
 use App\Http\Controllers\Admin\Menuscontroller;
@@ -74,6 +75,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     // Chefs
     Route::resource('/chefs', ChefsController::class);
     Route::post('/chef_delete/{id}', [ChefsController::class, 'delete'])->name('chef.delete');
+    // Chefs social
+    Route::resource('/chefs_social', Chefs_SocialController::class);
+    Route::post('/chef_social_delete/{id}', [Chefs_SocialController::class, 'delete'])->name('chef_social.delete');
     // Service
     Route::resource('/services', ServicesController::class);
     Route::post('/services_delete/{id}', [ServicesController::class, 'delete'])->name('services.delete');

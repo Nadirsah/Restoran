@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','İmtiyazlar')
+@section('title','Məlumat əlavə et')
 @section('theme_css')
 <link href="{{asset('admin')}}\global_assets\css\icons\fontawesome\styles.min.css" rel="stylesheet" type="text/css">
 @endsection
@@ -8,38 +8,28 @@
     @include('layouts.admin.alert')
     <div class="card">
         <div class="card-header header-elements-inline">
-
-            <h5 class="card-title"><a href="{{route('admin.chefs.create')}}" class="btn btn-info"><i
-                        class="icon-plus3 mr-3 icon-xl"></i> Aşbaz əlavə et</a></h5>
-
+            <h5 class="card-title"><a href="{{route('admin.chefs_social.show',$item->chefs_id)}}" class="btn btn-info"><i
+                        class="icon-plus3 mr-3 icon-xl"></i> <span class="text-warning">{{$item->getChefs->name}}</span></a></h5>
         </div>
-
-        <table class="table table-hover border table-bordered" id="dataTable">
+        <table class="table table-bordered ">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Ad</th>
-                    <th>Vəzifə</th>
-                    <th>Şəkil</th>
-                    <th>Daxil etmə tarixi</th>
-                    <th>Düzəliş tarixi</th>
+                    <th>Sosial unvan</th>
+                    <th>Sosial adress</th>
+
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($data as $items)
+                @foreach($data as $item)
                 <tr>
                     <td>{{$loop->iteration }}</td>
-                    <td>{{$items->name}}</td>
-                    <td>{{$items->position}}
-                    </td>
-                    <td><img width="50" src="{{$items->file_path}}" class="projects-image img-fluid" alt=""></td>
-                    <td>{{$items->created_at}}</td>
-                    <td>{{$items->updated_at}}</td>
-
-                    <td> <a href="{{route('admin.chefs.edit',$items->id)}}" title="Edit"><i class="btn btn-info fa fa-edit"></i></a>
-                        <a class="deleteRecord " data-id="{{ $items->id }}" title="Delete"><i class="btn btn-danger fa fa-trash"></i></a>
-                        <a href="{{route('admin.chefs.show',$items->id)}}" title="Social"><i class="btn btn-success fa fa-users"></i></a>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->social_url}}</td>
+                    <td> <a href="{{route('admin.chefs_social.edit',$item->id)}}"><i class="btn btn-info fa fa-edit"></i></a>
+                        <a class="deleteRecord" data-id="{{ $item->id }}"><i class="btn btn-danger fa fa-trash"></i></a>
+                        
                     </td>
                 </tr>
                 @endforeach
@@ -59,7 +49,7 @@
         }
 
         $.ajax({
-            url: "chef_delete/" + id,
+            url: "chef_social_delete/" + id,
             type: 'post',
             data: {
                 "id": id,

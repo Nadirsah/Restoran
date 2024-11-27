@@ -18,4 +18,6 @@ class Chefs extends Model
     ];
 
     public $translatable = ['position'];
+
+    
 }

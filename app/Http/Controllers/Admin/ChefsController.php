@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChefRequest;
 use App\Models\Chefs;
+use App\Models\Chefs_social;
 use App\Models\Lang;
 use Illuminate\Http\Request;
 
@@ -53,8 +54,9 @@ class ChefsController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+    {   $item = Chefs_social::where('chefs_id',$id)->first();
+        $data = Chefs_social::where('chefs_id',$id)->get();
+        return view('admin.chefs_social.index',compact('data','item'));
     }
 
     /**
