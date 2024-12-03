@@ -20,9 +20,11 @@
             </ul>
 
             <div class="tab-content">
-                @foreach($data as $items)
-                <div id="tab-{{$items->parent_id}}" class="tab-pane fade {{$items->parent_id === $item->id ? 'show active' : ''}} p-0">
+                @foreach($menu as $item)
+                <div id="tab-{{$item->id}}" class="tab-pane fade {{$loop->first ? 'show active' : ''}} p-0">
                     <div class="row g-4">
+                        @foreach($data as $items)
+                        @if($items->parent_id == $item->id)
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center">
                                 <img class="flex-shrink-0 img-fluid rounded" src="{{$items->file_path}}" alt="" style="width: 80px;">
@@ -35,43 +37,11 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
                 @endforeach
-
-
-                <!-- <div id="#{{$item->id}}" class="tab-pane fade show p-0">
-                    <div class="row g-4">
-                        <div class="col-lg-6">
-                            <div class="d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid rounded" src="{{asset('front')}}\img/menu-1.jpg" alt="" style="width: 80px;">
-                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                        <span>2Chicken Burger</span>
-                                        <span class="text-primary">$115</span>
-                                    </h5>
-                                    <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="#{{$item->id}}" class="tab-pane fade show p-0">
-                    <div class="row g-4">
-                        <div class="col-lg-6">
-                            <div class="d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid rounded" src="{{asset('front')}}\img/menu-1.jpg" alt="" style="width: 80px;">
-                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                        <span>3Chicken Burger</span>
-                                        <span class="text-primary">$115</span>
-                                    </h5>
-                                    <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

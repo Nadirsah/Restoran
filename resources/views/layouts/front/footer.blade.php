@@ -3,15 +3,15 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">{{__('word.Company')}}</h4>
-                        <a class="btn btn-link" href="">{{__('navbar.about')}}</a>
-                        <a class="btn btn-link" href="">{{__('navbar.contact')}}</a>
-                        <a class="btn btn-link" href="">{{__('word.reservation')}}</a>
+                        <a class="btn btn-link" href="{{route('about')}}">{{__('navbar.about')}}</a>
+                        <a class="btn btn-link" href="{{route('contact')}}">{{__('navbar.contact')}}</a>
+                        <a class="btn btn-link" href="{{route('booking')}}">{{__('word.reservation')}}</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">{{__('navbar.contact')}}</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{$setting->adress}}</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{$setting->phone_1}}</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{$setting->email}}</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -22,7 +22,7 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">{{__('word.opening')}}</h4>
                         <h5 class="text-light fw-normal">Hər gün </h5>
-                        <p>Saat 09:00-00:00</p>
+                        <p>{{__('word.hour')}} {{$setting->work_hour}}</p>
                         <!-- <h5 class="text-light fw-normal">Sunday</h5>
                         <p>10AM - 08PM</p> -->
                     </div>

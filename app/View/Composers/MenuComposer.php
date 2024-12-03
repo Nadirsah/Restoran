@@ -11,7 +11,7 @@ class MenuComposer
 {
     public function compose(View $view): void
     {
-        $menu = Menu::whereNull('parent_id')->get();
+        $menu = Menu::whereNull('parent_id')->take(3)->get();
         $data = Menu::whereNotNull('parent_id')->get();
         $view->with('menu', $menu);
         $view->with('data', $data);

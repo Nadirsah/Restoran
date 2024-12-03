@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\View\Composers\AboutComposer;
 use App\View\Composers\ChefsComposer;
+use App\View\Composers\ContactComposer;
 use App\View\Composers\LangComposer;
 use App\View\Composers\MenuComposer;
 use App\View\Composers\NavbarComposer;
@@ -32,5 +33,6 @@ class ViewServiceProvider extends ServiceProvider
         Facades\View::composer('layouts.front.menu', MenuComposer::class);
         Facades\View::composer(['layouts.front.navbarcontent', 'layouts.front.navbarhomecontent'], NavbarComposer::class);
         Facades\View::composer('layouts.front.about', AboutComposer::class);
+        Facades\View::composer('layouts.front.footer', ContactComposer::class);
     }
 }
